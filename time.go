@@ -27,3 +27,9 @@ func Per30sTimes() (string, string, string) {
 
 	return sbefore, snow, safter
 }
+
+func TS() string {
+	ts := time.Now().Unix()
+	s := strconv.FormatInt(ts, 10)
+	return s
+}
