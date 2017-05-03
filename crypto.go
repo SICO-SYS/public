@@ -25,3 +25,9 @@ func HMACSha256Encrypt(k string, v string) string {
 	s.Write([]byte(v))
 	return hex.EncodeToString(s.Sum(nil))
 }
+
+func Hmac256ToBase64(key string, str string, needurl bool) string {
+	s := hmac.New(sha256.New, []byte(key))
+	s.Write([]byte(str))
+	return ToBase64(s.Sum(nil), needurl)
+}
