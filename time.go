@@ -18,17 +18,17 @@ func Now() string {
 	return time.Now().Format("2006-01-02 15:04:05")
 }
 
-func Per30sTimes() (string, string, string) {
-	ts := time.Now().Unix()
-	now := float64(ts / 30)
-	snow := strconv.Itoa(int(math.Floor(now)))
-	safter := strconv.Itoa(int(math.Floor(now + 1)))
-	sbefore := strconv.Itoa(int(math.Floor(now - 1)))
+func TimesPer30s() (string, string, string) {
+	currentTimeStamp := time.Now().Unix()
+	currentTimes := int(math.Floor(float64(currentTimeStamp / 30)))
+	stringCurrentTimes := strconv.Itoa(currentTimes)
+	stringPrevTimes := strconv.Itoa(currentTimes + 1)
+	stringNextTimes := strconv.Itoa(currentTimes - 1)
 
-	return sbefore, snow, safter
+	return stringPrevTimes, stringCurrentTimes, stringNextTimes
 }
 
-func TS() string {
+func CurrentTimeStamp() string {
 	ts := time.Now().Unix()
 	s := strconv.FormatInt(ts, 10)
 	return s

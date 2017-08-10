@@ -16,7 +16,7 @@ import (
 	"time"
 )
 
-func GenHexString() string {
+func GenerateHexString() string {
 	data, _ := os.OpenFile("/dev/urandom", os.O_RDONLY, 0)
 	defer data.Close()
 	buf := make([]byte, 16)
@@ -25,7 +25,7 @@ func GenHexString() string {
 	return v
 }
 
-func GenNonce() string {
+func GenerateNonce() string {
 	rand.Seed(time.Now().UnixNano())
 	time := rand.Intn(10000) + 10000
 	return strconv.Itoa(time)
