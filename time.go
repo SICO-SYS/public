@@ -22,8 +22,8 @@ func TimesPer30s() (string, string, string) {
 	currentTimeStamp := time.Now().Unix()
 	currentTimes := int(math.Floor(float64(currentTimeStamp / 30)))
 	stringCurrentTimes := strconv.Itoa(currentTimes)
-	stringPrevTimes := strconv.Itoa(currentTimes + 1)
-	stringNextTimes := strconv.Itoa(currentTimes - 1)
+	stringPrevTimes := strconv.Itoa(currentTimes - 1)
+	stringNextTimes := strconv.Itoa(currentTimes + 1)
 
 	return stringPrevTimes, stringCurrentTimes, stringNextTimes
 }
@@ -32,4 +32,8 @@ func CurrentTimeStamp() string {
 	ts := time.Now().Unix()
 	s := strconv.FormatInt(ts, 10)
 	return s
+}
+
+func CurrentUTCISO8601() string {
+	return time.Now().UTC().Format(time.RFC3339)
 }
