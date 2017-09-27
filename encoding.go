@@ -13,24 +13,20 @@ func EncodingBase64(b []byte, IsUrl bool) string {
 	return base64.StdEncoding.EncodeToString(b)
 }
 
-func String2Int(num string) int {
+func StringToInt(num string) int {
 	result, _ := strconv.Atoi(num)
 	return result
 }
 
-func String2Float(num string) float64 {
+func StringToFloat64(num string) float64 {
 	result, _ := strconv.ParseFloat(num, 64)
 	return result
 }
 
-func Int2String(num int) string {
+func IntToString(num int) string {
 	return strconv.Itoa(num)
 }
 
-func Int642String(num int64) string {
+func Int64ToString(num int64) string {
 	return strconv.FormatInt(num, 10)
-}
-
-func Int2Float(num int) float64 {
-	return float64(num)
 }
