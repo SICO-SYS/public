@@ -9,13 +9,16 @@ Email:    sinerwr@gmail.com
 package public
 
 import (
-	"math"
 	"strconv"
 	"time"
 )
 
 func Now() string {
 	return time.Now().Format("2006-01-02 15:04:05")
+}
+
+func CurrentUTCFormat() string {
+	return time.Now().UTC().Format("2006-01-02 15:04:05")
 }
 
 func CurrentTimeStamp() string {
@@ -37,10 +40,10 @@ func CurrentYYYMMDDTHHMMSSZ() string {
 
 func TimesPer30s() (string, string, string) {
 	currentTimeStamp := time.Now().Unix()
-	currentTimes := int(math.Floor(float64(currentTimeStamp / 30)))
-	stringCurrentTimes := strconv.Itoa(currentTimes)
-	stringPrevTimes := strconv.Itoa(currentTimes - 1)
-	stringNextTimes := strconv.Itoa(currentTimes + 1)
+	currentTimes := currentTimeStamp / 30
+	stringCurrentTimes := strconv.FormatInt(currentTimes, 10)
+	stringPrevTimes := strconv.FormatInt(currentTimes-1, 10)
+	stringNextTimes := strconv.FormatInt(currentTimes+1, 10)
 
 	return stringPrevTimes, stringCurrentTimes, stringNextTimes
 }
