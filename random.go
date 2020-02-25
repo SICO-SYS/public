@@ -25,6 +25,15 @@ func GenerateHexString() string {
 	return v
 }
 
+func GenerateHexStringWithLen(lenth int64) string {
+	data, _ := os.OpenFile("/dev/urandom", os.O_RDONLY, 0)
+	defer data.Close()
+	buf := make([]byte, lenth)
+	data.Read(buf)
+	v := hex.EncodeToString(buf)
+	return v
+}
+
 func GenerateNonce() string {
 	rand.Seed(time.Now().UnixNano())
 	time := rand.Intn(10000) + 10000
